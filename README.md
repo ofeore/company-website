@@ -68,5 +68,4 @@ This is a practice project, so functionality is intentionally simple and focused
 - Improve the overall user interface and visual fluidity, including smoother transitions and animations.
 - Enhance responsiveness across different screen sizes and devices.
 - Store user inputs (such as contact names) in a database instead of handling them only on the client side.
-- Add a backend service to support persistent data storage and future features.
 - Add better error handling for API requests.

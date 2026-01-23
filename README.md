@@ -13,16 +13,13 @@ The goal of this repo is to practise **DOM manipulation**, **modal popups**, and
 ## Features
 
 - **Image section interaction**
-
   - Click the image row to toggle the layout (normal ↔ `row-reverse`).
 
 - **Contact greeting**
-
   - Enter your name in the Contact input and click **Introduce yourself** to receive a greeting message.
   - Includes a simple empty-input check (adds a red border if nothing is entered).
 
 - **Modal popups (Dashboard cards)**
-
   - Click **Read the article** on any dashboard card to open a modal.
   - Modal can be closed by:
     - Clicking **Close**
@@ -50,14 +47,16 @@ The goal of this repo is to practise **DOM manipulation**, **modal popups**, and
 
 ## Project Structure
 
+```code
 .
-├─ index.html
-├─ styles.css
-├─ script.js
-└─ images/
-├─ lou-batier-5EoWFa_Htdo-unsplash.jpg
-├─ fabian-kozdon-5ZeooCGNw3s-unsplash.jpg
-└─ levi-midnight--DApw8eRfR8-unsplash.jpg
+├── index.html
+├── styles.css
+├── script.js
+└── images/
+    ├── lou-batier-5EoWFa_Htdo-unsplash.jpg
+    ├── fabian-kozdon-5ZeooCGNw3s-unsplash.jpg
+    └── levi-midnight--DApw8eRfR8-unsplash.jpg
+```
 
 ## Notes
 

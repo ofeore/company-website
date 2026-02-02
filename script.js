@@ -10,43 +10,39 @@ document.querySelector("#image-section").addEventListener("click", function () {
   this.classList.toggle("row-reverse");
 });
 
-// CONTACT TASK
+// CONTACTS
 
 document.addEventListener("DOMContentLoaded", function () {
-  const button = document.querySelector("#contact button"); // Target the button specifically inside #contact section
-  const input = document.querySelector("#contact input"); // Target the input specifically inside #contact section
-  const para = document.querySelector("#contact p"); // Target the p specifically inside #contact section
+  const button = document.querySelector("#contact button");
+  const input = document.querySelector("#contact input");
+  const text = document.querySelector("#contact p");
 
-  button.addEventListener("click", function () {
-    // Get the input value
-    const name = input.value;
+  button.addEventListener("click", async function () {
+    const email = input.value;
 
-    // Check if the input is empty or just whitespace
-    if (name.trim() === "") {
-      // Highlight the input field with a red border for error
+    if (email.trim() === "") {
       input.style.border = "1px solid red";
-    } else {
-      const message = `Nice to meet you, ${name} 👋! We will be in contact.`;
-
-      // Create a new <p> element to display the message
-      const messageElement = document.createElement("p");
-      messageElement.textContent = message;
-      messageElement.style.fontSize = "18px";
-      messageElement.style.textAlign = "left";
-      messageElement.style.marginTop = "10px";
-      messageElement.style.color = "black"; // Adjust color to match your design
-
-      // Append the message element below the form
-      document.querySelector("#contact").appendChild(messageElement);
-
-      // Hide the input, button, and p.
-      input.style.display = "none";
-      button.style.display = "none";
-      para.style.display = "none";
-
-      // Reset the input border color if valid
-      input.style.border = "";
+      return;
     }
+
+    input.style.border = "";
+
+    const response = await fetch("http://localhost:3001/api/contacts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.error);
+      return;
+    }
+
+    text.textContent = "Thanks! We'll be in touch.";
+    input.style.display = "none";
+    button.style.display = "none";
   });
 });
 

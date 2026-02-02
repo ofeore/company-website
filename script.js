@@ -18,31 +18,44 @@ document.addEventListener("DOMContentLoaded", function () {
   const text = document.querySelector("#contact p");
 
   button.addEventListener("click", async function () {
-    const email = input.value;
+    const email = input.value.trim();
 
-    if (email.trim() === "") {
+    // reset message styling each click
+    text.style.color = "black";
+
+    if (email === "") {
       input.style.border = "1px solid red";
+      text.textContent = "Please enter an email.";
+      text.style.color = "crimson";
       return;
     }
 
     input.style.border = "";
+    text.textContent = "Submitting...";
 
-    const response = await fetch("http://localhost:3001/api/contacts", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: email }),
-    });
+    try {
+      const response = await fetch("http://localhost:3001/api/contacts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email }),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (!response.ok) {
-      alert(data.error);
-      return;
+      if (!response.ok) {
+        text.textContent = data.error || "Something went wrong.";
+        text.style.color = "crimson";
+        return;
+      }
+
+      text.textContent = "Thanks! We'll be in touch.";
+      input.style.display = "none";
+      button.style.display = "none";
+    } catch (error) {
+      console.log(error);
+      text.textContent = "Could not reach the server.";
+      text.style.color = "crimson";
     }
-
-    text.textContent = "Thanks! We'll be in touch.";
-    input.style.display = "none";
-    button.style.display = "none";
   });
 });
 

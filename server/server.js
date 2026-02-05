@@ -1,6 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 
+const path = require("path");
+const ENV = process.env.NODE_ENV || "production";
+require("dotenv").config({ path: path.join(__dirname, `.env.${ENV}`) });
+
 const pool = require("./db");
 
 const app = express();
@@ -14,6 +18,22 @@ app.get("/", (req, res) => {
 app.get("/api/test-db", async (req, res) => {
   const result = await pool.query("SELECT NOW()");
   res.json(result.rows[0]);
+});
+
+app.get("/api/whoami", async (req, res) => {
+  const result = await pool.query(`
+    SELECT
+      current_database() as db,
+      current_user as user,
+      inet_server_addr() as server_ip,
+      version() as version
+  `);
+  res.json(result.rows[0]);
+});
+
+app.get("/api/contacts", async (req, res) => {
+  const result = await pool.query("SELECT * FROM contacts;");
+  res.json(result.rows);
 });
 
 app.post("/api/contacts", async (req, res) => {
@@ -38,7 +58,6 @@ app.post("/api/contacts", async (req, res) => {
 
     return res.status(201).json({ ok: true, contact: result.rows[0] });
   } catch (err) {
-    // unique email constraint
     if (err.code === "23505") {
       return res.status(409).json({ ok: false, error: "Email already exists" });
     }

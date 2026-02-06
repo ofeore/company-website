@@ -34,11 +34,14 @@ document.addEventListener("DOMContentLoaded", function () {
     text.textContent = "Submitting...";
 
     try {
-      const response = await fetch("http://localhost:3001/api/contacts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email }),
-      });
+      const response = await fetch(
+        "https://company-website-mqmv.onrender.com/api/contacts",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email }),
+        },
+      );
 
       const data = await response.json();
 

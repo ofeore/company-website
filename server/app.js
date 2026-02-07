@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-const apiRouter = require("./routes/api.router");
+const apiRouter = require("./routes/api.routes");
 const {
   handleCustomErrors,
   handlePSQLErrors,

@@ -350,7 +350,7 @@ body.no-scroll {
   right: 50%;
   transform: translateX(50%); /* center horizontally above modal */
   padding: 8px 24px;
-  border-radius: 50px; /* makes it pill-shaped */
+  border-radius: 50px; 
   border: 1px solid black;
   background-color: white;
   color: black;
@@ -406,9 +406,16 @@ body.modal-open nav ul {
 /* Phone */
 @media (max-width: 600px) {
   :root {
-    --nav-offset: 92px;
+    --nav-offset: 95px;
     --hero-gap: 32px;
     --quote-height: auto;
+  }
+
+  #mission,
+  #about,
+  #contact,
+  #dashboard {
+    scroll-margin-top: var(--nav-offset);
   }
 
   body {

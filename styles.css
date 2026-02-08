@@ -406,7 +406,7 @@ body.modal-open nav ul {
 /* Phone */
 @media (max-width: 600px) {
   :root {
-    --nav-offset: 60px;
+    --nav-offset: 100px;
     --hero-gap: 32px;
     --quote-height: auto;
   }

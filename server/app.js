@@ -22,4 +22,8 @@ app.use(handleCustomErrors);
 app.use(handlePSQLErrors);
 app.use(handleServerErrors);
 
+app.get("/api/health", (req, res) => {
+  res.status(200).send({ ok: true });
+});
+
 module.exports = app;

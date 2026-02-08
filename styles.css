@@ -410,13 +410,13 @@ body.modal-open nav ul {
     --hero-gap: 32px;
     --quote-height: auto;
   }
-
+/* 
   #mission,
   #about,
   #contact,
   #dashboard {
     scroll-margin-top: var(--nav-offset);
-  }
+  } */
 
   body {
     padding-top: var(--nav-offset);

@@ -1,15 +1,17 @@
 const { Pool } = require("pg");
+const path = require("path");
 
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config({ path: ".env.development" });
+const ENV = process.env.NODE_ENV || "production";
+
+if (ENV !== "production") {
+  require("dotenv").config({
+    path: path.join(__dirname, `../.env.${ENV}`),
+  });
 }
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl:
-    process.env.NODE_ENV === "production"
-      ? { rejectUnauthorized: false }
-      : false,
+  ssl: ENV === "production" ? { rejectUnauthorized: false } : false,
 });
 
 module.exports = pool;

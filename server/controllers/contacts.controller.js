@@ -10,6 +10,7 @@ exports.getContacts = async (req, res, next) => {
 };
 
 exports.createContact = async (req, res, next) => {
+  console.log("POST /api/contacts hit", req.body);
   try {
     const { email } = req.body;
 

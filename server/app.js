@@ -10,16 +10,7 @@ const {
 
 const app = express();
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:8888",
-      "http://localhost:3000",
-      "http://localhost:5173",
-      "https://fastidious-gnome-bfe3c2.netlify.app",
-    ],
-  }),
-);
+app.use(cors());
 
 app.use(express.json());
 

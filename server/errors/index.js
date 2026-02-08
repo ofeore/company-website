@@ -6,7 +6,7 @@ exports.handleCustomErrors = (err, req, res, next) => {
 
 exports.handlePSQLErrors = (err, req, res, next) => {
   if (err.code === "23505") {
-    return res.status(409).send({ msg: "email already exists" });
+    return res.status(409).send({ msg: "Email already exists" });
   }
   next(err);
 };

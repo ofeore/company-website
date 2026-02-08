@@ -43,10 +43,15 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       );
 
-      const data = await response.json();
+      let data = {};
+      try {
+        data = await response.json();
+      } catch (err) {
+        data = {};
+      }
 
       if (!response.ok) {
-        text.textContent = data.error || "Something went wrong.";
+        text.textContent = data.error || data.msg || "Something went wrong.";
         text.style.color = "crimson";
         return;
       }

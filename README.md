@@ -121,6 +121,13 @@ Backend: Render
 
 Database: Supabase (PostgreSQL)
 
+### Live deployment note
+
+<p>The backend API is hosted on Render’s free tier, which may spin down after inactivity.</p>
+
+<p>On the first interaction with the contact form, the request may take 10–20 seconds while the server starts.
+Once active, subsequent submissions respond normally.</p>
+
 ## API Endpoints
 
 **Health check:**

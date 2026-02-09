@@ -58,18 +58,30 @@ This project was built to demonstrate end-to-end web development skills: fronten
 
 ## Screenshots
 
-**Landing page (desktop):**
+<details>
+<summary>Click to expand screenshots</summary>
+  
+### Landing page (desktop)
 
 ![Landing page](./assets/landing-page-quotes.png)
 
-**Contact form submission:**
+### Contact form submission
+
 ![Contact form](./assets/contact-form-submission.png)
 
-**Stored emails in Supabase:**
+### Stored emails (Supabase)
 
 ![Contacts database](./assets/supabase-database.png)
 
-Further screenshots for dashboard and email validation stored in assets/ 
+### Dashboard modal
+
+![Dashboard modal](./assets/dashboard-modals.png)
+
+### Mobile layout
+
+![Mobile modal](./assets/mobile-layout.png)
+
+</details>
 
 ## Tech Stack
 
@@ -241,7 +253,7 @@ Tests run against a dedicated test database and do not affect production data.
 
 - Observability (metrics, logging, monitoring)
 
-- Authentication for admin access
+- Authentication for admin access to contacts endpoint
 
 - Expanded dashboard data sources
 

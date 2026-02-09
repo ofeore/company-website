@@ -1,70 +1,268 @@
-# Placeholder Inc. — DOM Practice Project
+# Placeholder Inc.
 
-A small front-end practice project built with **HTML, CSS, and vanilla JavaScript**.  
-The goal of this repo is to practise **DOM manipulation**, **modal popups**, and **consuming an external API** (with content updating on a timed interval).
+A full-stack web application featuring a responsive company website with a production-ready backend API, persistent database storage, and automated testing.
+
+The project combines a static front end deployed on Netlify with a Node.js/Express backend deployed on Render, connected to a PostgreSQL database hosted on Supabase.
+
+Live site:
+👉 https://placeholder-company-website.netlify.app
+
+Backend API:
+👉 https://company-website-mqmv.onrender.com
+
+## Overview
+
+Placeholder Inc. simulates a modern company landing page with interactive UI components and a real backend system behind the scenes.
+
+Visitors can submit their email via the contact form. The email is validated on the server and stored securely in a PostgreSQL database. The application also demonstrates fetching data from an external API, modal UI patterns, and mobile-responsive design.
+
+This project was built to demonstrate end-to-end web development skills: frontend UI, backend architecture, database design, testing, and deployment.
+
+## Key Features
+
+**Frontend**
+
+- Responsive layout (desktop, mobile)
+
+- Fixed navigation with smooth scrolling
+
+- Interactive image section (layout toggle)
+
+- Dashboard cards with modal popups
+
+- External API–driven quotes that update automatically
+
+- Contact form with real backend integration
+
+**Backend**
+
+- RESTful API built with Node.js and Express
+
+- Clear separation of concerns (routes, controllers, models)
+
+- Server-side validation and sanitisation
+
+- Parameterised SQL queries (SQL injection safe)
+
+- PostgreSQL database with unique email constraint
+
+- Environment-based configuration (development / test / production)
+
+## Testing
+
+- API endpoint tests using Jest and Supertest
+
+- Automatic database seeding for tests
+
+- Tests run without affecting production data
+
+## Screenshots
+
+Landing page (desktop)
+![Landing page](./assets/landing-page-quotes.png)
+
+Contact form submission
+![Contact form](./assets/contact-form-submission.png)
+
+Input validation for emails
+![Invalid format email](./assets/invalid-email-error.png)
+
+Stored emails in Supabase
+![Contacts database](./assets/supabase-database.png)
+
+Dashboard
+![Dashboard modal](./assets/dashboard-modals.png)
+
+Example of dashboard modal
+![News modal](./assets/modal-example.png)
+
+Mobile layout
+![Mobile UI](./assets/mobile-layout.png)
 
 ## Tech Stack
 
+**Frontend**
+
 - HTML
+
 - CSS
-- JavaScript (vanilla)
-- External API: `https://api.chucknorris.io/jokes/random`
 
-## Features
+- Vanilla JavaScript
 
-- **Image section interaction**
-  - Click the image row to toggle the layout (normal ↔ `row-reverse`).
+**Backend**
 
-- **Contact greeting**
-  - Enter your name in the Contact input and click **Introduce yourself** to receive a greeting message.
-  - Includes a simple empty-input check (adds a red border if nothing is entered).
+- Node.js
 
-- **Modal popups (Dashboard cards)**
-  - Click **Read the article** on any dashboard card to open a modal.
-  - Modal can be closed by:
-    - Clicking **Close**
-    - Clicking outside the modal content
-    - Pressing **Esc**
-  - Page scroll is disabled while the modal is open.
+- Express
 
-- **API-powered jokes/quotes**
-  - Fetches a random Chuck Norris joke from an external API.
-  - Automatically refreshes on a timed interval and updates the header text.
-  - Loading message appears on page if the quote has not yet been received.
+- PostgreSQL
 
-## How to Run
+- node-postgres (pg)
 
-### Run Locally Using `npx serve` (recommended)
+## Tooling & Testing
 
-1. Install Node.js (if you don't have it already)
-2. In the project folder, run:
+- Jest
 
-   ```bash
-   npx serve
-   ```
+- Supertest
 
-3. Copy the localhost URL shown in the terminal (for example http://localhost:3000) and paste it into your browser
+- dotenv
+
+- nodemon
+
+## Deployment
+
+Frontend: Netlify
+
+Backend: Render
+
+Database: Supabase (PostgreSQL)
+
+## API Endpoints
+
+**Health check:**
+
+```
+GET /api/health
+```
+
+Returns a simple OK response for service monitoring.
+
+**Contacts:**
+
+```
+GET /api/contacts
+POST /api/contacts
+```
+
+POST example input with Insomnia:
+
+```
+{
+"email": "user@example.com"
+}
+```
+
+Validates email format
+
+Prevents duplicate entries
+
+Returns appropriate HTTP status codes
 
 ## Project Structure
 
-```code
+This repository contains both the frontend and backend for the application.
+
+### Frontend (root directory)
+
+```
 .
 ├── index.html
 ├── styles.css
 ├── script.js
-└── images/
-    ├── lou-batier-5EoWFa_Htdo-unsplash.jpg
-    ├── fabian-kozdon-5ZeooCGNw3s-unsplash.jpg
-    └── levi-midnight--DApw8eRfR8-unsplash.jpg
+├── images/
+├── README.md
 ```
 
-## Notes
+- A static website built with HTML, CSS, and vanilla JavaScript
+- Deployed on Netlify
 
-This is a practice project, so functionality is intentionally simple and focused on DOM concepts. There are no tests included for this project.
+### Backend (`/server`)
 
-## Ideas for improvements
+```
+server/
+├── app.js
+├── listen.js
+├── db.js
+├── routes/
+├── controllers/
+├── models/
+├── errors/
+├── db/
+│ ├── seed.js
+│ └── data/
+├── tests/
+├── package.json
+└── package-lock.json
+```
 
-- Improve the overall user interface and visual fluidity, including smoother transitions and animations.
-- Enhance responsiveness across different screen sizes and devices.
-- Store user inputs (such as contact names) in a database instead of handling them only on the client side.
-- Add better error handling for API requests.
+- Express server exposing a REST API
+- PostgreSQL database connection
+- Automated tests for API endpoints
+- Deployed on Render
+
+## Environment Variables
+
+The backend uses different databases per environment.
+
+.env.production
+DATABASE_URL=postgresql://...
+
+.env.test
+PGDATABASE=company_website_test
+
+Environment selection is handled automatically via NODE_ENV.
+
+## Running Locally
+
+Clone the repo:
+
+```
+git clone https://github.com/ofeore/company-website.git
+cd company-website
+```
+
+Install backend dependencies:
+
+```
+cd server
+npm install
+```
+
+Seed the database:
+
+```
+npm run seed
+```
+
+Run the server:
+
+```
+npm run dev
+```
+
+Server runs on:
+
+http://localhost:3001
+
+## Running Tests
+
+```
+cd server
+npm test
+```
+
+Tests run against a dedicated test database and do not affect production data.
+
+## Future Improvements
+
+- Pagination and rate limiting on API endpoints
+
+- Observability (metrics, logging, monitoring)
+
+- Authentication for admin access
+
+- Expanded dashboard data sources
+
+## Why This Project
+
+This project demonstrates:
+
+- Real-world backend architecture
+
+- Database design and safety (parameterized queries)
+
+- API testing discipline
+
+- Deployment workflows
+
+- Clean separation of concerns

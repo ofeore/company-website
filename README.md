@@ -5,10 +5,10 @@ A full-stack web application featuring a responsive company website with a produ
 The project combines a static front end deployed on Netlify with a Node.js/Express backend deployed on Render, connected to a PostgreSQL database hosted on Supabase.
 
 Live site:
-👉 https://placeholder-company-website.netlify.app
+https://placeholder-company-website.netlify.app
 
 Backend API:
-👉 https://company-website-mqmv.onrender.com
+https://company-website-mqmv.onrender.com
 
 ## Overview
 
@@ -58,30 +58,22 @@ This project was built to demonstrate end-to-end web development skills: fronten
 
 ## Screenshots
 
-Landing page (desktop)
+**Landing page (desktop):**
+
 ![Landing page](./assets/landing-page-quotes.png)
 
-Contact form submission
+**Contact form submission:**
 ![Contact form](./assets/contact-form-submission.png)
 
-Input validation for emails
-![Invalid format email](./assets/invalid-email-error.png)
+**Stored emails in Supabase:**
 
-Stored emails in Supabase
 ![Contacts database](./assets/supabase-database.png)
 
-Dashboard
-![Dashboard modal](./assets/dashboard-modals.png)
-
-Example of dashboard modal
-![News modal](./assets/modal-example.png)
-
-Mobile layout
-![Mobile UI](./assets/mobile-layout.png)
+Further screenshots for dashboard and email validation stored in assets/ 
 
 ## Tech Stack
 
-**Frontend**
+### Frontend
 
 - HTML
 
@@ -89,7 +81,7 @@ Mobile layout
 
 - Vanilla JavaScript
 
-**Backend**
+### Backend
 
 - Node.js
 

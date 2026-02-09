@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     input.style.border = "";
-    text.textContent = "Submitting...";
+    text.textContent = "Starting server... This may take a few seconds.";
 
     try {
       const response = await fetch(

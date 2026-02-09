@@ -15,7 +15,7 @@ exports.createContact = async (req, res, next) => {
     const { email } = req.body;
 
     if (!email || typeof email !== "string") {
-      return res.status(400).send({ msg: "email is required" });
+      return res.status(400).send({ msg: "Email is required" });
     }
 
     const cleanedEmail = email.trim().toLowerCase();

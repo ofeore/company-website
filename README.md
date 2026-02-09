@@ -1,4 +1,4 @@
-# Placeholder Inc.
+# Company Website
 
 A full-stack web application featuring a responsive company website with a production-ready backend API, persistent database storage, and automated testing.
 

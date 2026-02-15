@@ -201,18 +201,6 @@ server/
 - Automated tests for API endpoints
 - Deployed on Render
 
-## Environment Variables
-
-The backend uses different databases per environment.
-
-.env.production
-DATABASE_URL=postgresql://...
-
-.env.test
-PGDATABASE=company_website_test
-
-Environment selection is handled automatically via NODE_ENV.
-
 ## Running Locally
 
 Clone the repo:
@@ -222,20 +210,49 @@ git clone https://github.com/ofeore/company-website.git
 cd company-website
 ```
 
-Install backend dependencies:
+1. Install backend dependencies:
 
 ```
 cd server
 npm install
 ```
 
-Seed the database:
+2. Create local PostgreSQL databases
+
+```
+createdb company_website
+createdb company_website_test
+```
+
+3. Create environment files inside the server/ folder
+
+server/.env.development
+
+```
+PGDATABASE=company_website
+PGUSER=postgres
+PGHOST=localhost
+PGPORT=5432
+```
+
+server/.env.test
+
+```
+PGDATABASE=company_website_test
+PGUSER=postgres
+PGHOST=localhost
+PGPORT=5432
+```
+
+Production variables are handled automatically by Render.
+
+4. Seed the development database:
 
 ```
 npm run seed
 ```
 
-Run the server:
+5.  Start the server:
 
 ```
 npm run dev
@@ -243,16 +260,18 @@ npm run dev
 
 Server runs on:
 
+```
 http://localhost:3001
+```
 
-## Running Tests
+6. Running Tests
 
 ```
 cd server
 npm test
 ```
 
-Tests run against a dedicated test database and do not affect production data.
+Tests run against a dedicated test database and do not affect development or production data.
 
 ## Future Improvements
 

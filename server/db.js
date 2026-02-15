@@ -7,4 +7,4 @@ const config =
 
 const pool = new Pool(config);
 
-module.exports = pool;
+module.exports = require("./db/connection");

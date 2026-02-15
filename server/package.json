@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon listen.js",
     "start": "node listen.js",
-    "seed": "node db/seed.js",
+    "seed": "NODE_ENV=development node db/seed.js",
     "test": "NODE_ENV=test jest"
   },
   "keywords": [],

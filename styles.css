@@ -1,7 +1,7 @@
 :root {
   --nav-offset: 140px;
   --quote-height: 58px;
-  --hero-gap: 140px; 
+  --hero-gap: 140px;
 }
 
 * {
@@ -11,8 +11,9 @@
   box-sizing: border-box;
 }
 
-html { scroll-padding-top: var(--nav-offset);
-   scroll-behavior: smooth;
+html {
+  scroll-padding-top: var(--nav-offset);
+  scroll-behavior: smooth;
 }
 
 #mission,
@@ -26,8 +27,19 @@ body {
   color: black;
   display: flex;
   flex-wrap: wrap;
-  padding: var(--nav-offset) 0 80px 0; 
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: var(--nav-offset) 0 80px 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+.scroll-spacer {
+  height: calc(var(--nav-offset) + var(--quote-height) + 125px);
 }
 
 ul {
@@ -56,7 +68,7 @@ nav {
   padding: 30px 40px;
   font-size: 50px;
 
-  background: white; 
+  background: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 
@@ -72,15 +84,7 @@ nav ul a {
   padding-bottom: 10px;
 }
 
-nav ul li:nth-child(1) a {
-  color: #000000;
-}
-
-nav ul li:nth-child(2) a {
-  color: rgb(0, 0, 0);
-}
-
-nav ul li:nth-child(3) a {
+nav ul li a {
   color: #000000;
 }
 
@@ -88,7 +92,7 @@ header#quote {
   width: 100%;
   height: 58px;
   padding: 20px 0;
-  margin: 35px 100px 0 100px;
+  margin: 125px 150px 60px 100px;
 
   overflow: hidden;
   text-align: center;
@@ -104,21 +108,20 @@ h1 {
   font-size: 56px;
   font-weight: 600;
   letter-spacing: -0.5px;
-  padding: 55px 100px 45px 100px; 
+  padding: 55px 100px 45px 100px;
 }
-
 
 #image-section {
   width: 100%;
   display: flex;
   padding: 0;
 
-  
-  height: calc(100vh - var(--nav-offset) - var(--quote-height) - var(--hero-gap));
+  height: calc(
+    100vh - var(--nav-offset) - var(--quote-height) - var(--hero-gap)
+  );
   min-height: 270px;
   max-height: 450px;
 }
-
 
 #image-section img {
   width: calc(100% / 3);
@@ -141,14 +144,14 @@ section:nth-of-type(2) {
   width: 100%;
   flex-direction: column;
   background-color: #f5f6f8;
-  border-top: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 section:nth-of-type(3) {
   width: 50%;
   flex-direction: column;
   background-color: #eef0f3;
-  border-top: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 section:nth-of-type(4) {
@@ -156,7 +159,7 @@ section:nth-of-type(4) {
   min-height: 450px;
   flex-direction: column;
   background-color: #f2f3f1;
-  border-top: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 section:nth-of-type(5) {
@@ -168,10 +171,8 @@ section:nth-of-type(5) h2 {
   color: black;
 }
 
-
-
 h2 {
-  color: #111827;   
+  color: #111827;
   font-size: 40px;
   margin-bottom: 30px;
 }
@@ -190,6 +191,7 @@ input {
 
 input::placeholder {
   color: rgba(0, 0, 0, 0.3);
+  font-size: medium;
 }
 
 button {
@@ -201,6 +203,7 @@ button {
   color: rgba(50, 50, 50);
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.4);
+  font-size: medium;
 }
 
 section:nth-of-type(4) button {
@@ -215,6 +218,7 @@ footer {
   border-top: 1px solid grey;
   margin: 120px 100px 0 100px;
   justify-content: space-between;
+  font-size: large;
 }
 
 footer ul {
@@ -227,6 +231,17 @@ footer ul {
 .row-reverse {
   flex-direction: row-reverse;
 }
+
+p {
+  font-size: larger;
+}
+
+#dashboard {
+  color: #111827;
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+
 .card {
   border: 1px solid #dadada;
   flex: 1;
@@ -247,9 +262,9 @@ footer ul {
 }
 .card-container {
   display: flex;
-  gap: 24px; /* space between cards */
-  margin-top: 24px; /* More space under dashboard title*/
-  justify-content: center; /* center the row */
+  gap: 24px;
+  margin-top: 24px;
+  justify-content: center;
   flex-wrap: wrap; /* wrap on small screens */
 }
 
@@ -271,10 +286,14 @@ footer ul {
 
 .card p {
   margin-bottom: 15px;
+  font-size: larger;
+  line-height: 30px;
+  padding: 20px;
+  padding-left: 0px;
 }
 
 .card button {
-  background-color: #4b2e2e; /* Deep Brown */
+  background-color: #4b2e2e; /* Deep brown */
   color: #fff;
   border: none;
   padding: 10px 15px;
@@ -283,19 +302,17 @@ footer ul {
 }
 
 .card button:hover {
-  background-color: #372525; /* darker on hover */
+  background-color: #372525;
 }
 
 .card:hover {
-  border-color: #372525; /* darker on hover */
+  border-color: #372525;
 }
 
 .paletime {
   color: #e0e0e0;
-  font-size: small;
+  font-size: medium;
 }
-
-
 
 body.no-scroll {
   overflow: hidden;
@@ -350,7 +367,7 @@ body.no-scroll {
   right: 50%;
   transform: translateX(50%); /* center horizontally above modal */
   padding: 8px 24px;
-  border-radius: 50px; 
+  border-radius: 50px;
   border: 1px solid black;
   background-color: white;
   color: black;
@@ -410,13 +427,6 @@ body.modal-open nav ul {
     --hero-gap: 32px;
     --quote-height: auto;
   }
-/* 
-  #mission,
-  #about,
-  #contact,
-  #dashboard {
-    scroll-margin-top: var(--nav-offset);
-  } */
 
   body {
     padding-top: var(--nav-offset);
